@@ -26,5 +26,6 @@ public class SupervisorDao extends Generico<Supervisor> implements Serializable 
         q = getEntityManager().createQuery("SELECT s FROM Supervisor s");
         return q.getResultList();
     }
-
+    
+    
 }

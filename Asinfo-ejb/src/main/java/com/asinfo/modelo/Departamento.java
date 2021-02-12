@@ -8,6 +8,8 @@ package com.asinfo.modelo;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -137,5 +139,6 @@ public class Departamento implements Serializable {
     public String toString() {
         return "com.asinfo.modelo.Departamento[ depId=" + depId + " ]";
     }
+
     
 }

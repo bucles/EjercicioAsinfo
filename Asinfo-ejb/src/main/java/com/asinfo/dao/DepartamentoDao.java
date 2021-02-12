@@ -8,8 +8,10 @@ package com.asinfo.dao;
 import com.asinfo.generico.Generico;
 import com.asinfo.modelo.Departamento;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 
 /**
  *
@@ -17,6 +19,11 @@ import javax.ejb.Stateless;
  */
 @LocalBean
 @Stateless
-public class DepartamentoDao extends Generico<Departamento> implements Serializable{
-    
+public class DepartamentoDao extends Generico<Departamento> implements Serializable {
+
+    public List<Departamento> listarTodoDepartamento() {
+        Query q;
+        q = getEntityManager().createQuery("SELECT d FROM Departamento d");
+        return q.getResultList();
+    }
 }

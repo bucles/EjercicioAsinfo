@@ -8,8 +8,10 @@ package com.asinfo.dao;
 import com.asinfo.generico.Generico;
 import com.asinfo.modelo.Empleado;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 
 /**
  *
@@ -18,5 +20,11 @@ import javax.ejb.Stateless;
 @LocalBean
 @Stateless
 public class EmpleadoDao extends Generico<Empleado> implements Serializable {
+
+    public List<Empleado> listarTodoEmpleado() {
+        Query q;
+        q = getEntityManager().createQuery("SELECT e FROM Empleado e");
+        return q.getResultList();
+    }
 
 }

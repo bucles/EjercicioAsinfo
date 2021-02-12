@@ -10,6 +10,7 @@ import com.asinfo.modelo.SupervisorEmpleado;
 import java.io.Serializable;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 
 /**
  *
@@ -18,5 +19,19 @@ import javax.ejb.Stateless;
 @LocalBean
 @Stateless
 public class SupervisorEmpleadoDao extends Generico<SupervisorEmpleado> implements Serializable {
+
+    public SupervisorEmpleado obtenerSupervisorPorEmpleado(int idEmpleado) {
+        Query q;
+        q = getEntityManager().createQuery("SELECT s FROM SupervisorEmpleado s"
+                + " WHERE s.empId.empId =:idEmpleado");
+        q.setParameter("idEmpleado", idEmpleado);
+        q.setMaxResults(1);
+        try {
+            return (SupervisorEmpleado) q.getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
 
 }

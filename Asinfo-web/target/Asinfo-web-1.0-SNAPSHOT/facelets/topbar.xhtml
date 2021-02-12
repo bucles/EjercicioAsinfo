@@ -18,15 +18,24 @@
     <nav>
         <div class="nav-wrapper">
             <a href="#!" class="brand-logo"></a>
-            <ul class="right hide-on-med-and-down">
-                <h:form>
-                    <li>
-                        <p:commandLink action="#{loginControlador.logout()}" value="Salir"
-                                       update="@form"/>
-                    </li>
 
-                </h:form>
-            </ul>
+            <h:form>
+                <p:menubar style="position: absolute; right: 4px;">
+                    <p:submenu label="Revisar" icon="pi pi-file" >
+                        <p:menuitem value="Supervisor" url="#"/>
+                        <p:menuitem value="Empleados" url="#"/>
+                    </p:submenu>
+                    <p:submenu label="Reportes" icon="pi pi-pencil">
+                        <p:menuitem value="Empleados" url="#" icon="pi pi-angle-double-left"/>
+                    </p:submenu>
+                    <p:submenu label="Cuenta" icon="pi pi-pencil">
+                        <p:menuitem value="Salir" icon="pi pi-angle-double-left"
+                                    action="#{loginControlador.logout()}"
+                                    update="@form" process="@this"/>
+                    </p:submenu>
+                </p:menubar>
+            </h:form>
+
         </div>
     </nav>
 

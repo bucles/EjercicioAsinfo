@@ -1,2 +1,5 @@
+com\asinfo\modelo\Usuario.class
 com\asinfo\generico\Generico.class
+com\asinfo\modelo\Usuario_.class
+com\asinfo\dao\UsuarioDao.class
 com\asinfo\NewSessionBean.class

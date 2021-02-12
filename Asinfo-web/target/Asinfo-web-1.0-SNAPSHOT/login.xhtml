@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+
+    <h:head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="resources/css/materialize.css"  media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>Login</title>
+        </f:facet>
+    </h:head>
+
+
+    <h:body styleClass="cyan lighten-5">
+
+
+        <h:form id="form" >
+            <p:growl id="growl" showDetail="true" sticky="true" life="3000"/> 
+
+            <div class="valign-wrapper row login-box">
+                <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+
+                    <div class="card-content">
+                        <span class="card-title">Login</span>
+                        <div class="row">
+                            <div class="col s12 input-field">
+                                <h:outputLabel for="username" value ="Usuario"/>
+                                <h:inputText value="#{loginControlador.usuUsuario}" 
+                                             class="login-input" id="username"
+                                             required="true" requiredMessage="Ingrese el email"
+                                             />
+                            </div>
+                            <div class="col s12 input-field">
+                                <h:outputLabel for="password" value ="Contraseña"/>
+                                <p:password  feedback="false" value="#{loginControlador.usuPassword}"
+                                             class="login-input" id="password"
+                                             required="true" requiredMessage="Ingrese la contraseña"
+                                             />
+                            </div> 
+
+
+                        </div>
+                    </div>
+                    <div class="card-action right-align">                      
+                        <p:commandButton value="Ingresar"
+                                         title="Ingresar" class="btn green waves-effect waves-light"
+                                         update=":form:growl :form" 
+                                         action="#{loginControlador.login()}"/> 
+                    </div>
+
+
+                </div>
+            </div>
+
+        </h:form>
+
+
+
+
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="resources/js/materialize.js"></script>
+    </h:body>
+</html>
+

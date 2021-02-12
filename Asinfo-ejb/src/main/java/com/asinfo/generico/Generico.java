@@ -5,14 +5,10 @@
  */
 package com.asinfo.generico;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -25,7 +21,7 @@ import lombok.Getter;
  */
 public class Generico<T> {
 
-    @PersistenceContext(unitName = "ASINFO_PU")
+    @PersistenceContext(unitName = "ASINFO_UP")
 
     @Getter
     private EntityManager entityManager;

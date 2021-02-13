@@ -1,3 +1,4 @@
 com\asinfo\controlador\SupervisorControlador.class
 com\asinfo\controlador\LoginControlador.class
 com\asinfo\controlador\EmpleadoControlador.class
+com\asinfo\controlador\ConsultarEmpleadosControlador.class

@@ -5,23 +5,22 @@
  */
 package com.asinfo.controlador;
 
-import com.asinfo.dao.DepartamentoDao;
-import com.asinfo.dao.EmpleadoDao;
 import com.asinfo.dao.SupervisorDao;
 import com.asinfo.dao.SupervisorEmpleadoDao;
-import com.asinfo.modelo.Departamento;
-import com.asinfo.modelo.Empleado;
 import com.asinfo.modelo.Supervisor;
 import com.asinfo.modelo.SupervisorEmpleado;
+import com.asinfo.util.ReporteUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,6 +32,9 @@ import lombok.Setter;
 @Named(value = "consultarEmpleadosControlador")
 @ViewScoped
 public class ConsultarEmpleadosControlador implements Serializable {
+    
+    @Inject
+    private ReporteUtil reporteUtil;
 
     @EJB
     private SupervisorEmpleadoDao supervisorEmpleadoDao;
@@ -73,5 +75,21 @@ public class ConsultarEmpleadosControlador implements Serializable {
                 break;
         }
     }
+    
+    
+
+    public void generarReporteEmpleados() {
+        try {
+            Map<String, Object> parametros = new HashMap<>();
+            parametros.put("idSupervisor", idSupervisor);
+            reporteUtil.imprimirReporteEnPDF("AsinfoEmpleados", "ReporteEmpleados", parametros);
+
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Successful", "Reporte Generado"));
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+
 
 }

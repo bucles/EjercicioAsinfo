@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+
+    <h:head>
+
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>Consultar</title>
+        </f:facet>
+    </h:head>
+
+    <body styleClass="cyan lighten-5">
+        <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                        template="../facelets/plantilla.xhtml">
+            <ui:define name="content">
+
+                <h:form id="frmConsulta" >
+                    <p:growl id="growl" showDetail="true" sticky="true" life="3000"/>
+                    <div class="row">
+                        <div class="col s2">
+                        </div>
+
+                        <div class="col s8">
+                            <div class="card" >
+                                <div class="left-align" style="margin-bottom: 15px;"> 
+                                    <p:panelGrid columns="4" layout="grid">
+                                        <p:outputLabel value="Supervisor"/>
+                                        <p:selectOneMenu value="#{consultarEmpleadosControlador.idSupervisor}"
+                                                         style="width: 150px">
+                                            <f:selectItem itemLabel="TODOS" itemValue="#{0}"/>
+                                            <f:selectItems value="#{consultarEmpleadosControlador.listSupervisor}" 
+                                                           var="sup" itemLabel="#{sup.supNombre} #{sup.supApellido}"
+                                                           itemValue="#{sup.supId}"/>   
+                                        </p:selectOneMenu>
+                                        <p:commandButton value="Buscar" title="Buscar empleados"
+                                                         update="frmConsulta"
+                                                         class="btn green waves-effect waves-light"
+                                                         action="#{consultarEmpleadosControlador.buscar()}"
+                                                         />    
+                                        <p:commandButton value="REPORTE PDF" title="Generar reporte PDF"
+                                                         ajax="false"
+                                                         class="btn green waves-effect waves-light"
+                                                         action="#{consultarEmpleadosControlador.generarReporteEmpleados()}"
+                                                         />    
+                                    </p:panelGrid>
+
+                                </div>
+
+                                <p:dataTable id="tblEmpleados" var="supEmp" 
+                                             value="#{consultarEmpleadosControlador.listSupEmpleado}"
+                                             scrollHeight="150">
+                                    <f:facet name="header">
+                                        EMPLEADOS
+                                    </f:facet>
+                                    <p:column headerText="Nombres">
+                                        <h:outputText value="#{supEmp.empId.empNombre}" />
+                                    </p:column>
+
+                                    <p:column headerText="Apellidos">
+                                        <h:outputText value="#{supEmp.empId.empApellido}" />
+                                    </p:column>
+
+                                    <p:column headerText="Fecha Nac.">
+                                        <h:outputText value="#{supEmp.empId.empfechaNac}">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:outputText>
+                                    </p:column>
+
+                                    <p:column headerText="Supervisor">
+                                        <h:outputText value="#{supEmp.supId.supNombre} #{supEmp.supId.supApellido}" />
+                                    </p:column>
+
+                                    <p:column headerText="Departamento">
+                                        <h:outputText value="#{supEmp.empId.depId.depNombre}" />
+                                    </p:column>
+
+                                    <p:column headerText="Sueldo ($)">
+                                        <h:outputText value="#{supEmp.empId.empSueldo}" />
+                                    </p:column>
+
+                                </p:dataTable>
+                            </div>
+                        </div>
+
+                        <div class="col s2">
+                        </div>
+                    </div>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
+

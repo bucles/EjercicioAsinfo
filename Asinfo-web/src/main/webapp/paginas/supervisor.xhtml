@@ -30,15 +30,18 @@
                         <div class="col s6">
                             <div class="card" >
                                 <div class="right-align" style="margin-bottom: 15px;">                                                                       
-                                        <p:commandButton value="Nuevo" title="Crear nuevo supervisor"
-                                                         update=":formCrearSupervisor"
-                                                         class="btn green waves-effect waves-light"
-                                                         action="#{supervisorControlador.prepararSupervisor()}"
-                                                         oncomplete="PF('dlgSupervisor').show()"/>                                    
+                                    <p:commandButton value="Nuevo" title="Crear nuevo supervisor"
+                                                     update=":formCrearSupervisor"
+                                                     class="btn green waves-effect waves-light"
+                                                     action="#{supervisorControlador.prepararSupervisor()}"
+                                                     oncomplete="PF('dlgSupervisor').show()"/>                                    
                                 </div>
 
                                 <p:dataTable var="superv" value="#{supervisorControlador.listSupervisor}"
                                              scrollHeight="150">
+                                    <f:facet name="header">
+                                        SUPERVISORES
+                                    </f:facet>
                                     <p:column headerText="Nombres">
                                         <h:outputText value="#{superv.supNombre}" />
                                     </p:column>

@@ -44,10 +44,10 @@
                                                          class="btn green waves-effect waves-light"
                                                          action="#{consultarEmpleadosControlador.buscar()}"
                                                          />    
-                                         <p:commandButton value="REPORTE PDF" title="Generar reporte PDF"
-                                                          ajax="false"
+                                        <p:commandButton value="REPORTE PDF" title="Generar reporte PDF"
+                                                         ajax="false"
                                                          class="btn green waves-effect waves-light"
-                                                         action="#{consultarEmpleadosControlador.buscar()}"
+                                                         action="#{consultarEmpleadosControlador.generarReporteEmpleados()}"
                                                          />    
                                     </p:panelGrid>
 
@@ -56,6 +56,9 @@
                                 <p:dataTable id="tblEmpleados" var="supEmp" 
                                              value="#{consultarEmpleadosControlador.listSupEmpleado}"
                                              scrollHeight="150">
+                                    <f:facet name="header">
+                                        EMPLEADOS
+                                    </f:facet>
                                     <p:column headerText="Nombres">
                                         <h:outputText value="#{supEmp.empId.empNombre}" />
                                     </p:column>

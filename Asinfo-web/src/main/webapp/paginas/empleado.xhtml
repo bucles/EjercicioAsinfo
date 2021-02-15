@@ -40,6 +40,9 @@
 
                                 <p:dataTable id="tblEmpleados" var="emp" value="#{empleadoControlador.listEmpleado}"
                                              scrollHeight="150">
+                                    <f:facet name="header">
+                                        EMPLEADOS
+                                    </f:facet>
                                     <p:column headerText="Nombres">
                                         <h:outputText value="#{emp.empNombre}" />
                                     </p:column>

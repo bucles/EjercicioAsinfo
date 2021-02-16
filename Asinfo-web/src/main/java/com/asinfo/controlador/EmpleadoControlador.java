@@ -22,6 +22,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
@@ -80,8 +81,8 @@ public class EmpleadoControlador implements Serializable {
 
     public void crearEmpleado() {
         FacesContext context = FacesContext.getCurrentInstance();
-        supervisor = supervisorDao.find(new Supervisor(), supervisor.getSupId());
         Departamento dep = departamentoDao.find(new Departamento(), idDepartamento);
+        supervisor = supervisorDao.find(new Supervisor(), supervisor.getSupId());
         empleado.setDepId(dep);
         empleado.setEmpFHR(Calendar.getInstance().getTime());
         empleadoDao.create(empleado);

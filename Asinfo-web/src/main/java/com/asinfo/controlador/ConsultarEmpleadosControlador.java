@@ -7,6 +7,8 @@ package com.asinfo.controlador;
 
 import com.asinfo.dao.SupervisorDao;
 import com.asinfo.dao.SupervisorEmpleadoDao;
+import com.asinfo.interfaz.IReporte;
+import com.asinfo.interfaz.ReporteFactory;
 import com.asinfo.modelo.Supervisor;
 import com.asinfo.modelo.SupervisorEmpleado;
 import com.asinfo.util.ReporteUtil;
@@ -32,7 +34,7 @@ import lombok.Setter;
 @Named(value = "consultarEmpleadosControlador")
 @ViewScoped
 public class ConsultarEmpleadosControlador implements Serializable {
-    
+
     @Inject
     private ReporteUtil reporteUtil;
 
@@ -75,21 +77,33 @@ public class ConsultarEmpleadosControlador implements Serializable {
                 break;
         }
     }
-    
-    
 
     public void generarReporteEmpleados() {
         try {
             Map<String, Object> parametros = new HashMap<>();
-            parametros.put("idSupervisor", idSupervisor);
-            reporteUtil.imprimirReporteEnPDF("AsinfoEmpleados", "ReporteEmpleados", parametros);
+            if (idSupervisor == 0) {
+                //usando patron diseño Factory
+                parametros.put("idSupervisor", idSupervisor);
+                ReporteFactory reporteFactory = new ReporteFactory();
+                IReporte report = reporteFactory.crearReporte("AllSupervisor");
+                report.generarReportePDF("AsinfoAllEmpleados", parametros, "ReporteTodoSupervisor");
+            } else {
+                //usando patron diseño Factory
+                parametros.put("idSupervisor", idSupervisor);
+                //usando patron diseño Factory
+                ReporteFactory reporteFactory = new ReporteFactory();
+                IReporte report = reporteFactory.crearReporte("BySupervisor");
+                report.generarReportePDF("AsinfoEmpleados", parametros, "ReporteIndividual");
+            }
 
+            //usando clase general
+            //reporteUtil.generarReportePDF("AsinfoEmpleados", parametros, "ReporteEmpleados");
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Successful", "Reporte Generado"));
+
         } catch (Exception e) {
             System.err.println(e);
         }
     }
-
 
 }

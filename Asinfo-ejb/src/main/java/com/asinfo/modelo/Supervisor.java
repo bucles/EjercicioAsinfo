@@ -63,6 +63,16 @@ public class Supervisor implements Serializable {
     private Date supFHR;
     @OneToMany(mappedBy = "supId")
     private List<SupervisorEmpleado> supervisorempleadoList;
+    
+    //Patron Builder
+    Supervisor(SupervisorBuilder builder) {        
+        this.supNombre = builder.getSupNombre();
+        this.supApellido = builder.getSupApellido();
+        this.supFechaNac = builder.getSupFechaNac();
+        this.supSueldo = builder.getSupSueldo();
+        this.supFHR = builder.getSupFHR();
+        this.supervisorempleadoList = builder.getSupervisorempleadoList();
+    }
 
     public Supervisor() {
     }

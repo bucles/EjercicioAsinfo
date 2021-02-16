@@ -7,6 +7,7 @@ package com.asinfo.controlador;
 
 import com.asinfo.dao.SupervisorDao;
 import com.asinfo.modelo.Supervisor;
+import com.asinfo.modelo.SupervisorBuilder;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,14 @@ public class SupervisorControlador implements Serializable {
 
     public void crearSupervisor() {
         FacesContext context = FacesContext.getCurrentInstance();
-        supervisorDao.create(supervisor);
+        //usando Patron Builder
+        Supervisor nuevoSupervisor = new SupervisorBuilder()
+                .supNombre(supervisor.getSupNombre(), supervisor.getSupApellido())
+                .supFechaNac(supervisor.getSupFechaNac())
+                .supSueldo(supervisor.getSupSueldo())
+                .supFHR(supervisor.getSupFHR())
+                .supervisorempleadoList(supervisor.getSupervisorempleadoList()).build();
+        supervisorDao.create(nuevoSupervisor);
         context.addMessage(null, new FacesMessage("éxito", "Supervisor creado"));
         listSupervisor = supervisorDao.listarTodoSupervisor();
 //        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "No se pudo crear", null);

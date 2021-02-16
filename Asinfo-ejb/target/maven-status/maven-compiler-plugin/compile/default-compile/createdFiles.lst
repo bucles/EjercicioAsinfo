@@ -3,6 +3,7 @@ com\asinfo\modelo\Departamento.class
 com\asinfo\generico\Generico.class
 com\asinfo\dao\UsuarioDao.class
 com\asinfo\NewSessionBean.class
+com\asinfo\modelo\SupervisorBuilder.class
 com\asinfo\modelo\Supervisor_.class
 com\asinfo\dao\SupervisorEmpleadoDao.class
 com\asinfo\modelo\SupervisorEmpleado_.class

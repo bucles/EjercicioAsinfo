@@ -110,7 +110,7 @@ public class EmpleadoControlador implements Serializable {
         String nombreSupervisor = "";
         if (superVE != null) {
             nombreSupervisor = superVE.getSupId().getSupNombre().trim()
-                    + superVE.getSupId().getSupApellido().trim();
+                    + " " + superVE.getSupId().getSupApellido().trim();
         }
         return nombreSupervisor;
     }

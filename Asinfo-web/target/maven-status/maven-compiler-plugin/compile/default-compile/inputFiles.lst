@@ -1,5 +1,6 @@
 C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\controlador\EmpleadoControlador.java
 C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\interfaz\ReporteTodosSupervisor.java
+C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\commons\DoFilter.java
 C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\controlador\ConsultarEmpleadosControlador.java
 C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\interfaz\ReporteFactory.java
 C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\interfaz\IReporte.java
@@ -8,4 +9,3 @@ C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\as
 C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\controlador\SupervisorControlador.java
 C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\interfaz\ReportePorSupervisor.java
 C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\util\ConnectionJasper.java
-C:\Users\Marco\Documents\NetBeansProjects\Asinfo\Asinfo-web\src\main\java\com\asinfo\controlador\EmpleadoFachada.java

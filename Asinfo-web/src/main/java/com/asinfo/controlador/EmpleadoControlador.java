@@ -53,6 +53,9 @@ public class EmpleadoControlador implements Serializable {
     @Getter
     @Setter
     private int idDepartamento;
+    @Getter
+    @Setter
+    private String nombreSup;
 
     @Getter
     @Setter
@@ -113,6 +116,15 @@ public class EmpleadoControlador implements Serializable {
                     + " " + superVE.getSupId().getSupApellido().trim();
         }
         return nombreSupervisor;
+    }
+
+    public void obtenerNombreSup() {
+        SupervisorEmpleado superVE = supervisorEmpleadoDao.obtenerSupervisorPorEmpleado(empleado.getEmpId());
+        nombreSup = "";
+        if (superVE != null) {
+            nombreSup = superVE.getSupId().getSupNombre().trim()
+                    + " " + superVE.getSupId().getSupApellido().trim();
+        }
     }
 
     public void obtenerEmpleados() {

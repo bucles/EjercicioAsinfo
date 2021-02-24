@@ -6,6 +6,7 @@
 package com.asinfo.modelo;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -54,7 +55,7 @@ public class Supervisor implements Serializable {
     @Column(name = "supApellido")
     private String supApellido;
     @Column(name = "supSueldo")
-    private Long supSueldo;
+    private BigDecimal supSueldo;
     @Column(name = "supFechaNac")
     @Temporal(TemporalType.TIMESTAMP)
     private Date supFechaNac;
@@ -63,9 +64,9 @@ public class Supervisor implements Serializable {
     private Date supFHR;
     @OneToMany(mappedBy = "supId")
     private List<SupervisorEmpleado> supervisorempleadoList;
-    
+
     //Patron Builder
-    Supervisor(SupervisorBuilder builder) {        
+    Supervisor(SupervisorBuilder builder) {
         this.supNombre = builder.getSupNombre();
         this.supApellido = builder.getSupApellido();
         this.supFechaNac = builder.getSupFechaNac();
@@ -105,11 +106,11 @@ public class Supervisor implements Serializable {
         this.supApellido = supApellido;
     }
 
-    public Long getSupSueldo() {
+    public BigDecimal getSupSueldo() {
         return supSueldo;
     }
 
-    public void setSupSueldo(Long supSueldo) {
+    public void setSupSueldo(BigDecimal supSueldo) {
         this.supSueldo = supSueldo;
     }
 
@@ -162,5 +163,5 @@ public class Supervisor implements Serializable {
     public String toString() {
         return "com.asinfo.modelo.Supervisor[ supId=" + supId + " ]";
     }
-    
+
 }

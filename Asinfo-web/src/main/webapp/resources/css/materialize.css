@@ -4473,14 +4473,14 @@ nav .input-field label.active i {
 
 @media only screen and (min-width: 601px) {
   nav.nav-extended .nav-wrapper {
-    min-height: 64px;
+    min-height: 50px;
   }
   nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
-    height: 64px;
-    line-height: 64px;
+    height: 50px;
+    line-height: 50px;
   }
   .navbar-fixed {
-    height: 64px;
+    height: 50px;
   }
 }
 
@@ -8651,7 +8651,7 @@ input[type=range]::-ms-thumb {
 .datepicker-modal {
   max-width: 525px;
   min-width: 500px;
-  max-height: none;
+  max-height: 320px;
 }
 
 .datepicker-container.modal-content {
@@ -8755,8 +8755,8 @@ input[type=range]::-ms-thumb {
 */
 
 .datepicker-table {
-  width: 280px;
-  font-size: 1rem;
+  width: 200px;
+  font-size: 0.8rem;
   margin: 0 auto;
 }
 
@@ -8765,7 +8765,7 @@ input[type=range]::-ms-thumb {
 }
 
 .datepicker-table th {
-  padding: 10px 5px;
+  padding: 7px 2px;
   text-align: center;
 }
 

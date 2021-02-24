@@ -69,8 +69,12 @@
                 </h:form>
 
                 <p:dialog header="Crear Supervisor" widgetVar="dlgSupervisor" modal="true"
-                          width="500">
+                          width="600" height="360">
                     <h:form id="formCrearSupervisor">
+                        <p:panelGrid columns="1" layout="grid"
+                                     columnClasses="ui-grid-col-12">
+                            <p:outputLabel value="INFORMACIÓN SUPERVISOR"/>
+                        </p:panelGrid>
                         <p:panelGrid columns="2" layout="grid"
                                      columnClasses="ui-grid-col-3, ui-grid-col-9">
                             <p:outputLabel value="Nombres"/>
@@ -85,7 +89,7 @@
                                         pattern="dd-MM-yyyy"/>
                             <p:outputLabel value="Sueldo"/>
                             <p:inputNumber value="#{supervisorControlador.supervisor.supSueldo}" 
-                                           minValue="0" decimalPlaces="2"
+                                           minValue="0" decimalPlaces="2" 
                                            />
                         </p:panelGrid>
                         <div align="right">

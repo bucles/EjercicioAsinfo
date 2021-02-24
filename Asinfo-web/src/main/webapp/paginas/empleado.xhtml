@@ -69,11 +69,12 @@
                                         <h:outputText value="#{emp.empSueldo}" />
                                     </p:column>
                                     <p:column headerText="">
-                                        <p:commandButton value="" title="Editar sueldo"
+                                        <p:commandButton value="Editar" title="Editar sueldo"
                                                          icon="fa fa-edit"
                                                          process="@this frmEmpleado:tblEmpleados"
                                                          class="btn blue waves-effect waves-light"
                                                          update=":formEditarEmpleado"
+                                                         action="#{empleadoControlador.obtenerNombreSup()}"
                                                          oncomplete="PF('dlgEditEmpleado').show()">
                                             <f:setPropertyActionListener target="#{empleadoControlador.empleado}"
                                                                          value="#{emp}"/>
@@ -89,7 +90,7 @@
                 </h:form>
 
                 <p:dialog header="Crear Empleado" widgetVar="dlgEmpleado" modal="true"
-                          width="500">
+                          width="600" height="380">
                     <h:form id="formCrearEmpleado">
                         <p:panelGrid columns="2" layout="grid"
                                      columnClasses="ui-grid-col-3, ui-grid-col-9">
@@ -147,7 +148,7 @@
                             <p:outputLabel value="#{empleadoControlador.empleado.empApellido}" /> 
 
                             <p:outputLabel value="Supervisor"/>
-                            <p:outputLabel value="#{empleadoControlador.obtenerNombreSupervisor(empleado.empId)}"/>
+                            <p:outputLabel value="#{empleadoControlador.nombreSup}"/>
 
                             <p:outputLabel value="Departamento"/>
                             <p:outputLabel value="#{empleadoControlador.empleado.depId.depNombre}"/>

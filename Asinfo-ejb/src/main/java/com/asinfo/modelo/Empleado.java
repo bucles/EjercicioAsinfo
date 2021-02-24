@@ -6,6 +6,7 @@
 package com.asinfo.modelo;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -59,7 +60,7 @@ public class Empleado implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date empfechaNac;
     @Column(name = "empSueldo")
-    private Long empSueldo;
+    private BigDecimal empSueldo;
     @Column(name = "empFHR")
     @Temporal(TemporalType.TIMESTAMP)
     private Date empFHR;
@@ -108,11 +109,11 @@ public class Empleado implements Serializable {
         this.empfechaNac = empfechaNac;
     }
 
-    public Long getEmpSueldo() {
+    public BigDecimal getEmpSueldo() {
         return empSueldo;
     }
 
-    public void setEmpSueldo(Long empSueldo) {
+    public void setEmpSueldo(BigDecimal empSueldo) {
         this.empSueldo = empSueldo;
     }
 
@@ -165,5 +166,5 @@ public class Empleado implements Serializable {
     public String toString() {
         return "com.asinfo.modelo.Empleado[ empId=" + empId + " ]";
     }
-    
+
 }

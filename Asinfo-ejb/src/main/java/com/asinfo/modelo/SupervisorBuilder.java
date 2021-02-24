@@ -6,6 +6,7 @@
 package com.asinfo.modelo;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -13,11 +14,11 @@ import java.util.List;
  *
  * @author Marco
  */
-public class SupervisorBuilder implements Serializable{
+public class SupervisorBuilder implements Serializable {
 
     private String supNombre;
     private String supApellido;
-    private Long supSueldo;
+    private BigDecimal supSueldo;
     private Date supFechaNac;
     private Date supFHR;
     private List<SupervisorEmpleado> supervisorempleadoList;
@@ -32,7 +33,7 @@ public class SupervisorBuilder implements Serializable{
         return this;
     }
 
-    public SupervisorBuilder supSueldo(Long supSueldo) {
+    public SupervisorBuilder supSueldo(BigDecimal supSueldo) {
         this.supSueldo = supSueldo;
         return this;
     }
@@ -65,7 +66,7 @@ public class SupervisorBuilder implements Serializable{
         return supApellido;
     }
 
-    public Long getSupSueldo() {
+    public BigDecimal getSupSueldo() {
         return supSueldo;
     }
 

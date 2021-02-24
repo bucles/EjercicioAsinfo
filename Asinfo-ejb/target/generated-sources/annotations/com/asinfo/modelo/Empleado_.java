@@ -1,5 +1,6 @@
 package com.asinfo.modelo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.ListAttribute;
@@ -10,7 +11,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Empleado.class)
 public abstract class Empleado_ {
 
-	public static volatile SingularAttribute<Empleado, Long> empSueldo;
+	public static volatile SingularAttribute<Empleado, BigDecimal> empSueldo;
 	public static volatile SingularAttribute<Empleado, Integer> empId;
 	public static volatile SingularAttribute<Empleado, String> empNombre;
 	public static volatile SingularAttribute<Empleado, String> empApellido;
